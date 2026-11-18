@@ -81,6 +81,15 @@ $ ... --method tools/list --strict
 → no schema portability problems; exit=0
 ```
 
+### Second machine (owner's device, Linux VM, Node.js v22.23.4, pnpm 10.34.9)
+
+Scratch copy of the delivered folder, history restored from `m0-history.bundle`:
+
+```text
+$ pnpm install --frozen-lockfile   exit=0
+$ pnpm run check                   exit=0  (format, lint, typecheck, 39/39 tests, build)
+```
+
 ### Runtime checks
 
 - `GET /healthz` → `{"status":"ok"}`.
@@ -89,6 +98,12 @@ $ ... --method tools/list --strict
 - `pnpm dev:mcp` (tsx, TypeScript source) answers `initialize`.
 
 ## Blockers and open decisions (owner action needed)
+
+0. **Restore git history and 2 protected files.** Remote tools may not write `.git/`,
+   `.github/workflows/`, or `.npmrc` on the owner's device. They are in
+   `m0-history.bundle`. In the `prog` folder run:
+   `git init -b main`, `git fetch ./m0-history.bundle main`, `git reset --mixed FETCH_HEAD`,
+   `git checkout -- .github/workflows/ci.yml .npmrc`. Then delete `m0-history.bundle`.
 
 1. **GitHub repository.** Create it (name and organization: Plan.md §13), push `main`, and
    confirm that the CI workflow is green on Node 22, 24, and 26. This completes the
