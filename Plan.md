@@ -322,10 +322,10 @@ Use React component composition. Prefer plain state + query/refetch over complex
 
 - [ ] Confirm repo name, license choice (Apache-2.0 recommended for broad contributions), and contributor rules.
 - [ ] Create public/private-initial GitHub monorepo; add `PLAN.md`, `PROGRESS.md`, README, license, SECURITY, CONTRIBUTING, `.gitignore`, `.env.example`.
-- [ ] Initialize pnpm workspace, strict TypeScript, lint/format, Vitest, GitHub Actions.
-- [ ] Add a short ADR for key decisions: app-first, provider-independent core, Postgres, block IDs, no autonomous agent loop.
-- [ ] Scaffold a minimal MCP `ping`/read-only `get_capabilities` tool using current official SDK example.
-- [ ] Start local MCP server and verify transport in MCP Inspector.
+- [x] Initialize pnpm workspace, strict TypeScript, lint/format, Vitest, GitHub Actions.
+- [x] Add a short ADR for key decisions: app-first, provider-independent core, Postgres, block IDs, no autonomous agent loop.
+- [x] Scaffold a minimal MCP `ping`/read-only `get_capabilities` tool using current official SDK example.
+- [x] Start local MCP server and verify transport in MCP Inspector.
 
 **Acceptance:** clean install; CI green; MCP tool callable locally; architecture README reflects actual code.
 
