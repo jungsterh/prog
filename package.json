@@ -1,0 +1,35 @@
+{
+  "name": "ai-workspace",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Open-source AI-native persistent workspace (MCP server + ChatGPT app).",
+  "license": "Apache-2.0",
+  "type": "module",
+  "packageManager": "pnpm@10.34.9",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "build": "pnpm -r --workspace-concurrency=1 run build",
+    "typecheck": "pnpm -r run typecheck",
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "pnpm run format:check && pnpm run lint && pnpm run typecheck && pnpm run test && pnpm run build",
+    "dev:mcp": "pnpm --filter @ai-workspace/mcp-server run dev",
+    "start:mcp": "pnpm --filter @ai-workspace/mcp-server run start",
+    "inspect": "pnpm dlx @modelcontextprotocol/inspector@2.15.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "22.20.5",
+    "eslint": "10.15.0",
+    "globals": "17.14.0",
+    "prettier": "3.10.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.73.0",
+    "vitest": "5.1.0"
+  }
+}
